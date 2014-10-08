@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#import sys
+import sys
 import random
 chain_dict = {}
 def make_chains(corpus):
@@ -53,27 +53,29 @@ def make_text(chains):
     # our_list.append(next_next_word)
     # our_list.append(next_third_word)
     
+def read_txt(files):
+    f = open(files)
+    input_text = f.read()
+    input_text = input_text.strip().split()
+    chain_dict = make_chains(input_text)
+    f.close()
+
+    return chain_dict
+
 def main():
- #   args = sys.argv
+  # from sys import argv
+  # script, filename1, filename2
 
-    # Change this to read input_text from a file
-    f = open("short.txt")
-    input_text = f.read()
-    input_text = input_text.strip().split()
-    
-    chain_dict = make_chains(input_text)
-    f.close()
+   
+   filename1 = raw_input("What is the first file? ")
+   filename2 = raw_input("What is the second file? ")
+   
+   read_txt(filename1)
+   read_txt(filename2)
 
-    f = open("another.txt")
-    input_text = f.read()
-    input_text = input_text.strip().split()
-    
-    chain_dict = make_chains(input_text)
-    f.close()
-
-    random_text = make_text(chain_dict)
-    string = " ".join(random_text)
-    print string
+   random_text = make_text(chain_dict)
+   string = " ".join(random_text)
+   print string
     
 
 if __name__ == "__main__":
