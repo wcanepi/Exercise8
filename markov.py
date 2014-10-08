@@ -28,16 +28,30 @@ def make_text(chains):
     
     rand_key = random.choice(chains.keys())
     third_word = random.choice(chains[rand_key])
-  """ 
-  Start our main list and add our seed rand_key (words 1 and 2) with the third word.
-  Take 2nd and 3rd words from new list and create next_tuple (loop this)
-  Look I
-  Each time append next_tuple with third word using this: third_word = random.choice(chains[next_tuple])
-  continue this until we reach 10 words OR no third word is found in our dictionary.
-  Continue appending all to our main list"""
+    #Create a new list to hold the string that we construc
+    our_list = []
+    our_list.append(rand_key[0])
+    our_list.append(rand_key[1])
+    our_list.append(third_word)
     
-    print rand_key
-    print third_word
+    while len(our_list) < 10:
+      next_tup = (our_list[-2], our_list[-1])
+      next_third_word = random.choice(chains[next_tup])
+      
+      our_list.append(our_list[-2])
+      our_list.append(our_list[-2])
+      our_list.append(next_third_word)
+    
+    return our_list
+
+    # next_word = our_list([rand_key][1])
+    # next_next_word = our_list[third_word]
+    
+    # tup3 = (next_word,next_next_word)
+    # next_third_word = chains.get(tup3)
+    
+    # our_list.append(next_next_word)
+    # our_list.append(next_third_word)
     
 def main():
  #   args = sys.argv
@@ -46,14 +60,11 @@ def main():
     f = open("short.txt")
     input_text = f.read()
     input_text = input_text.strip().split()
-    #print input_text
     
-
-    #input_text = "Some text"
     chain_dict = make_chains(input_text)
-    print chain_dict
     random_text = make_text(chain_dict)
-    print random_text
+    string = " ".join(random_text)
+    print string
     
 
 if __name__ == "__main__":
