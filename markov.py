@@ -66,7 +66,8 @@ def main():
    from sys import argv
    script, filename1, filename2 = argv
 
-   
+   #You can comment out the above two lines and uncomment the two lines below.  This is just writing two different ways to run the program - 1) from the command line or 2) by user input.
+
    #filename1 = raw_input("What is the first file? ")
    #filename2 = raw_input("What is the second file? ")
    
