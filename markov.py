@@ -63,12 +63,12 @@ def read_txt(files):
     return chain_dict
 
 def main():
-  # from sys import argv
-  # script, filename1, filename2
+   from sys import argv
+   script, filename1, filename2 = argv
 
    
-   filename1 = raw_input("What is the first file? ")
-   filename2 = raw_input("What is the second file? ")
+   #filename1 = raw_input("What is the first file? ")
+   #filename2 = raw_input("What is the second file? ")
    
    read_txt(filename1)
    read_txt(filename2)
