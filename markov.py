@@ -2,12 +2,12 @@
 
 #import sys
 import random
-
+chain_dict = {}
 def make_chains(corpus):
 
     """Takes an input text as a string and returns a dictionary of
     markov chains."""
-    chain_dict = {}
+    
     for i in range(len(corpus)-2):
         tup1 = corpus[i]
         tup2 = corpus[i+1]
@@ -62,6 +62,15 @@ def main():
     input_text = input_text.strip().split()
     
     chain_dict = make_chains(input_text)
+    f.close()
+
+    f = open("another.txt")
+    input_text = f.read()
+    input_text = input_text.strip().split()
+    
+    chain_dict = make_chains(input_text)
+    f.close()
+
     random_text = make_text(chain_dict)
     string = " ".join(random_text)
     print string
